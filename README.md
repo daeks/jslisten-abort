@@ -7,6 +7,8 @@ This repository is based on the jslisten tool provided here https://github.com/w
 
 # Installation
 
+```
 git clone https://github.com/daeks/jslisten-abort/
 cd jslisten-abort
 cp install_jslisten.sh "/home/pi/RetroPie-Setup/scriptmodules/supplementary"
+```
