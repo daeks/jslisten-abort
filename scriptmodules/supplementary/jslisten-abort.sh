@@ -18,8 +18,7 @@ function depends_jslisten-abort() {
 }
 
 function sources_jslisten-abort() {
-    gitPullOrClone "$md_build/jslisten" "https://github.com/workinghard/jslisten"
-    gitPullOrClone "$md_build/daeks" "https://github.com/daeks/jslisten-abort"
+    gitPullOrClone "$md_build/jslisten-abort" "https://github.com/daeks/jslisten-abort"
 }
 
 function build_jslisten-abort() {
@@ -28,22 +27,20 @@ function build_jslisten-abort() {
 
 function install_jslisten-abort() {
     sudo mkdir /opt/bin
-    sudo cp "$md_build/jslisten/bin/jslisten" "/opt/bin"
+    sudo cp "$md_build/jslisten-abort/jslisten/bin/jslisten" "/opt/bin"
     sudo chmod +x "/opt/bin/jslisten"
     
     mkdir "$md_conf_root/jslisten"
-    cp "$md_build/daeks/custom/jslisten.cfg" "$md_conf_root/jslisten"
-    cp "$md_build/daeks/custom/runcommand.sh" "$md_conf_root/jslisten"
+    cp -R "$md_build/jslisten-abort/custom/*" "$md_conf_root/jslisten"
     sudo ln -s "$md_conf_root/jslisten/jslisten.cfg" "/root/.jslisten"
     
-    sudo cp "$md_build/jslisten/utils/jslisten.service" "/etc/systemd/system"
+    sudo cp "$md_build/jslisten-abort/jslisten/utils/jslisten.service" "/etc/systemd/system"
     sudo systemctl daemon-reload
     sudo systemctl enable jslisten
     sudo systemctl start jslisten.service
 }
 
 function configure_jslisten-abort() {
-    rm -R "$md_build/jslisten"
-    rm -R "$md_build/daeks" 
+    rm -R "$md_build/jslisten-abort"
 }
 
