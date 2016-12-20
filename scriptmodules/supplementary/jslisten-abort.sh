@@ -32,8 +32,8 @@ function install_jslisten-abort() {
     sudo chmod +x "/opt/bin/jslisten"
     
     mkdir "$md_conf_root/jslisten"
-    cp "$md_build/daeks/jslisten.cfg" "$md_conf_root/jslisten"
-    cp "$md_build/daeks/runcommand.sh" "$md_conf_root/jslisten"
+    cp "$md_build/daeks/custom/jslisten.cfg" "$md_conf_root/jslisten"
+    cp "$md_build/daeks/custom/runcommand.sh" "$md_conf_root/jslisten"
     sudo ln -s "$md_conf_root/jslisten/jslisten.cfg" "/root/.jslisten"
     
     sudo cp "$md_build/jslisten/utils/jslisten.service" "/etc/systemd/system"
