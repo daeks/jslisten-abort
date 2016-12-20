@@ -6,7 +6,7 @@ if [ -f "$COMMANDINFO" ];
 then
    echo "Found Command File: $COMMANDINFO"
    
-   EMULATOR=$(head -1 $COMMANDINFO)
+   EMULATOR=$(sed -n 2p $COMMANDINFO)
    echo "Found Emulator: $EMULATOR"
    
    COMMAND=$(tail -1 $COMMANDINFO)
@@ -23,9 +23,9 @@ then
      then 
       PROGRAM=$EMULATOR
      fi
-     if [ "$EMULATOR" = "pc" ];
+     if [ "$EMULATOR" = "dosbox" ];
      then 
-      PROGRAM=dosbox
+      PROGRAM=$EMULATOR
      fi
      echo "Changed Program to $PROGRAM"
    fi
