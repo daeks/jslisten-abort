@@ -23,6 +23,10 @@ then
      then 
       PROGRAM=$EMULATOR
      fi
+     if [ "$EMULATOR" = "pc" ];
+     then 
+      PROGRAM=dosbox
+     fi
      echo "Changed Program to $PROGRAM"
    fi
    
