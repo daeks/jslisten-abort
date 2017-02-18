@@ -21,23 +21,19 @@ function sources_jslisten-abort() {
     gitPullOrClone "$md_build/jslisten-abort" "https://github.com/daeks/jslisten-abort"
 }
 
-function build_jslisten-abort() {
-
-}
-
 function install_jslisten-abort() {
-    sudo mkdir /opt/bin
-    sudo cp "$md_build/jslisten-abort/jslisten/bin/jslisten" "/opt/bin"
-    sudo chmod +x "/opt/bin/jslisten"
+    mkdir /opt/bin
+    cp "$md_build/jslisten-abort/jslisten/bin/jslisten" "/opt/bin"
+    chmod +x "/opt/bin/jslisten"
     
     mkdir "$md_conf_root/jslisten"
     cp -R "$md_build/jslisten-abort/custom/*" "$md_conf_root/jslisten"
-    sudo ln -s "$md_conf_root/jslisten/jslisten.cfg" "/root/.jslisten"
+    ln -s "$md_conf_root/jslisten/jslisten.cfg" "/root/.jslisten"
     
-    sudo cp "$md_build/jslisten-abort/jslisten/utils/jslisten.service" "/etc/systemd/system"
-    sudo systemctl daemon-reload
-    sudo systemctl enable jslisten
-    sudo systemctl start jslisten.service
+    cp "$md_build/jslisten-abort/jslisten/utils/jslisten.service" "/etc/systemd/system"
+    systemctl daemon-reload
+    systemctl enable jslisten
+    systemctl start jslisten.service
 }
 
 function configure_jslisten-abort() {
