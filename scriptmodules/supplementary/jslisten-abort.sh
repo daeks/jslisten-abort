@@ -18,11 +18,11 @@ function depends_jslisten-abort() {
 }
 
 function sources_jslisten-abort() {
-    gitPullOrClone "$md_build/jslisten-abort" "https://github.com/daeks/jslisten-abort"
+    gitPullOrClone "$md_build" "https://github.com/daeks/jslisten-abort"
 }
 
 function install_jslisten-abort() {
-    mkdir /opt/bin
+    mkdir "/opt/bin"
     cp "$md_build/jslisten-abort/jslisten/bin/jslisten" "/opt/bin"
     chmod +x "/opt/bin/jslisten"
     
@@ -35,8 +35,3 @@ function install_jslisten-abort() {
     systemctl enable jslisten
     systemctl start jslisten.service
 }
-
-function configure_jslisten-abort() {
-    rm -R "$md_build/jslisten-abort"
-}
-
